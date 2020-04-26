@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import './combineTxFormList.dart';
 
 class TransactionForm extends StatelessWidget {
   var titleTextEditController = TextEditingController();
   var amountTextEditController = TextEditingController();
+  Function functionHandler;
+
+  TransactionForm(this.functionHandler);
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +27,7 @@ class TransactionForm extends StatelessWidget {
                   labelText: 'Amount', contentPadding: EdgeInsets.all(5)),
               controller: amountTextEditController,
             ),
-            FlatButton(onPressed: (varTitle, varAmount) => {
-            CombineTxFormAndList().sub
-            },
+            FlatButton(onPressed: () => functionHandler(titleTextEditController.text, amountTextEditController.text),
                 child: Text('Submit Transaction'))
           ],
         ),

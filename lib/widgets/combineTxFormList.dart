@@ -29,7 +29,7 @@ class _CombineTxFormAndListState extends State<CombineTxFormAndList> {
       transactions.add(new Transaction(
           id: DateTime.now().toString(),
           title: varTitle,
-          amount: varAmount,
+          amount: double.parse(varAmount),
           date: DateTime.now()));
     });
   }
@@ -38,7 +38,7 @@ class _CombineTxFormAndListState extends State<CombineTxFormAndList> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TransactionForm(),
+        TransactionForm(submitTransaction),
         TransactionList(transactions),
       ],
     );
